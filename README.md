@@ -6,7 +6,7 @@ Always credit "Anusua Trivedi, Microsoft AI for Good Team" if using this code.
 
 ## TO GET Tensorflow API:
 1. Clone github: https://github.com/tensorflow/models
-2. USe code here: https://github.com/tensorflow/models/tree/master/research/object_detection
+2. Use code here: https://github.com/tensorflow/models/tree/master/research/object_detection
 
 
 ## TO ADD TF API TO PATH:
