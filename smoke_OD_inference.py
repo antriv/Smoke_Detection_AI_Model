@@ -29,13 +29,13 @@ from tkinter.filedialog import askopenfilename
 from datetime import datetime
 
 # Model to download and/or import
-MODEL_NAME = '/data/home/antriv/notebooks/nvidia_smoke/ssd_mobilenet_v2_smoke'
+MODEL_NAME = '/path/ssd_mobilenet_v2_smoke'
 
 # Path to frozen detection graph. This is the actual model that is used for the object detection
-PATH_TO_CKPT = MODEL_NAME + '/smoke_model/frozen_graph/frozen_inference_graph.pb'
+PATH_TO_CKPT = MODEL_NAME + '/path/frozen_inference_graph.pb'
 
 # List of the strings that is used to add correct label for each box
-PATH_TO_LABELS = os.path.join('/home/antriv/notebooks/nvidia_smoke/data', 'pascal_label_map.pbtxt')
+PATH_TO_LABELS = os.path.join('/path/data', 'pascal_label_map.pbtxt')
 NUM_CLASSES = 1
 
 # Load a (frozen) Tensorflow model into memory
@@ -88,44 +88,6 @@ class myThread(threading.Thread):
         print(data)
         
         
-        
-        
-'''
-        # Send the data to the Power BI dashboard
-        binary_data = data.encode('utf8')
-        
-        # Limit the amount of times data can be pushed per second
-        max_pushes_per_second = 4
-        time_seconds = time.time() % 60
-        remainder = (time_seconds - np.floor(time_seconds)) % (1/max_pushes_per_second)
-
-        # Reset count limit every second (leave some jitter room)
-        jitter = 0.1
-        global push_count
-        if (time_seconds - np.floor(time_seconds)) < jitter*2:
-          push_count = 0
-        
-        # If within jitter (0.1 seconds) of the timepoints where we can send data (if max_pushes_per_second = 4, then we can push at 0.25, 0.5, 0.75, and at 0)
-        if (remainder <= jitter) or (abs(remainder - (1/max_pushes_per_second)) <= jitter):
-          push_count += 1
-          if push_count <= max_pushes_per_second:
-            try:
-              response = requests.post(REST_API_URL, data=binary_data)
-              #print(data)
-              #print(push_count)
-            except requests.ConnectionError as e:
-              print('[ERROR] Connection Error')
-              print(str(e))
-# REST API endpoint, given to you when you create an API streaming dataset
-# Follow the tutorial here https://docs.microsoft.com/en-us/power-bi/service-real-time-streaming
-# Will be of the format: https://api.powerbi.com/beta/<tenant id>/datasets/< dataset id>/rows?key=<key id>
-#REST_API_URL = "YOUR POWER BI URL HERE"
-
-# Simple window to display if visualization is turned off (don't re-define in loop each frame)
-img_blank = np.zeros((512,512,3), np.uint8)
-cv2.putText(img_blank, 'Please check the Power BI dashboard', (10, 250), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (255,255,255),1)
-''' 
-
 # Object Detection on video frames
 class videoStreamer:
   def __init__(self):

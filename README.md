@@ -1,8 +1,3 @@
-# Microsoft_Smoke_Detection_AI_Model
-
-Copyright (c) Microsoft Corporation. All rights reserved. 
-Always credit "Anusua Trivedi, Microsoft AI for Good Team" if using this code.
-
 
 ## TO GET Tensorflow API:
 1. Clone github: https://github.com/tensorflow/models
