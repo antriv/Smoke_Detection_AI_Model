@@ -1,3 +1,4 @@
+All credit for this AI model goes to Anusua Trivedi, Senior Data Scientist for Microsoft AI for Good Team. The AI model is Copyright (c) Microsoft Corporation. All rights reserved. 
 
 ## TO GET Tensorflow API:
 1. Clone github: https://github.com/tensorflow/models
